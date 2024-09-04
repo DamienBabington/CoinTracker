@@ -9,7 +9,6 @@ import Foundation
 
 class CoinDetailsCache {
     
-    // static allows access to the same instance of this cache from anywhere in the app
     static let shared = CoinDetailsCache()
     
     private let cache = NSCache<NSString, NSData>()

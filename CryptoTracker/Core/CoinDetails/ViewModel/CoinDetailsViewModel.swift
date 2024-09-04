@@ -14,7 +14,6 @@ class CoinDetailsViewModel: ObservableObject {
     
     @Published var coinDetails: CoinDetails?
     
-    // example of dependency injection - this VM depends on this coinId and service instead of creating new instances of them
     init(coinId: String, service: CoinServiceProtocol) {
         self.service = service
         self.coinId = coinId

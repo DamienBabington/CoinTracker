@@ -11,7 +11,7 @@ protocol HTTPDataDownloader {
     func fetchData<T: Decodable>(type: T.Type, endpoint: String) async throws -> T
 }
 
-// Create a generic fetch function
+// Generic fetch function
 extension HTTPDataDownloader {
     func fetchData<T: Decodable>(type: T.Type, endpoint: String) async throws -> T {
         guard let url = URL(string: endpoint) else {
