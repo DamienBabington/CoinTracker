@@ -24,10 +24,19 @@ struct CoinListView: View {
                         HStack(spacing: 14) {
                             Text("\(coin.marketCapRank)")
                                 .foregroundStyle(.gray)
+                            
+                            ImageView(url: coin.image)
+                                .frame(width: 32, height: 32)
+
                             VStack(alignment: .leading, spacing: 4) {
                                 Text(coin.name)
                                     .fontWeight(.semibold)
                                 Text(coin.symbol.uppercased())
+                            }
+                        }
+                        .onAppear {
+                            if coin == viewModel.coins.last {
+                                Task { await viewModel.fetchCoins() }
                             }
                         }
                         .font(.footnote)
@@ -42,6 +51,9 @@ struct CoinListView: View {
                     Text(error)
                 }
             }
+        }
+        .task {
+            await viewModel.fetchCoins()
         }
     }
 }
