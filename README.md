@@ -2,7 +2,7 @@ CryptoTracker for iOS:
 - 
 
 Overview:
-- This app fetches data for the top cryptocurrencies and displays them in a list view.
+- This app fetches data for the top cryptocurrencies and displays them in a list view (sorted by market cap).
 - Tapping a list item will present a detail page which contains information about the cryptocurrency.
 - Data for 20 crypto coins will be loaded at a time.
 - Scrolling to the bottom of the list will automatically load and display data for 20 more coins
