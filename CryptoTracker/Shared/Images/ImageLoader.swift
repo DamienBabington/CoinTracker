@@ -14,14 +14,11 @@ class ImageLoader: ObservableObject {
     
     init(url: String) {
         self.urlString = url
-        /* can put the Task here instead of adding a task modifier to the view since it's a
-            subview that will always be contained within another view
-         */
         Task { await loadImage() }
     }
     
     /* not using HTTPDownloader service since it requires specification of a type, but this just fetches Data.
-        Could add another method to the service that just returns Data, but this is okay for now
+        Could add another method to the service that just returns Data, but this is okay for now.
      */
     @MainActor
     private func loadImage() async {

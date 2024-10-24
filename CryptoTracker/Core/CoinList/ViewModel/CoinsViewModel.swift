@@ -31,7 +31,6 @@ class CoinsViewModel: ObservableObject {
 }
 
 
-
 // MARK: - Using Completion Handlers
 
 //    init() {

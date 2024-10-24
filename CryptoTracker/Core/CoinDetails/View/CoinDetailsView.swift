@@ -9,7 +9,6 @@ import SwiftUI
 
 struct CoinDetailsView: View {
     
-    // dependency injection (this view is dependent on this coin object in order to load the view)
     let coin: Coin
     @ObservedObject var viewModel: CoinDetailsViewModel
     
