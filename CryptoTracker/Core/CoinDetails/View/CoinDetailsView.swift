@@ -20,26 +20,36 @@ struct CoinDetailsView: View {
     var body: some View {
         VStack(alignment: .leading) {
             if let details = viewModel.coinDetails {
-                HStack {
-                    VStack(alignment: .leading) {
-                        Text(details.name)
-                            .fontWeight(.semibold)
-                            .font(.subheadline)
+                ScrollView {
+                    HStack {
+                        Spacer()
+                        Text("$60,157")
+                            .font(.largeTitle)
+                        Spacer()
+                    }
+                    .padding(.bottom)
+                    
+                    HStack {
+                        VStack(alignment: .leading) {
+                            Text(details.name)
+                                .fontWeight(.semibold)
+                                .font(.subheadline)
+                            
+                            Text(details.symbol.uppercased())
+                                .font(.footnote)
+                        }
                         
-                        Text(details.symbol.uppercased())
-                            .font(.footnote)
+                        Spacer()
+                        
+                        ImageView(url: coin.image)
+                            .frame(width: 64, height: 64)
+                            .padding(.trailing)
                     }
                     
-                    Spacer()
-                    
-                    ImageView(url: coin.image)
-                        .frame(width: 64, height: 64)
-                        .padding(.trailing)
+                    Text(details.description.text)
+                        .font(.footnote)
+                        .padding(.vertical)
                 }
-                
-                Text(details.description.text)
-                    .font(.footnote)
-                    .padding(.vertical)
             }
         }
         .task {
@@ -49,6 +59,6 @@ struct CoinDetailsView: View {
     }
 }
 
-//#Preview {
-//    CoinDetailsView()
-//}
+#Preview {
+    CoinDetailsView(coin: Coin(id: NSUUID().uuidString, symbol: "BTC", name: "bitcoin", currentPrice: 60000, marketCapRank: 1, image: ""), service: MockCoinService())
+}
