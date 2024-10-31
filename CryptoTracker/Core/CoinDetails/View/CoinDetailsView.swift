@@ -23,7 +23,7 @@ struct CoinDetailsView: View {
                 ScrollView {
                     HStack {
                         Spacer()
-                        Text("$60,157")
+                        Text(coin.priceString)
                             .font(.largeTitle)
                         Spacer()
                     }
